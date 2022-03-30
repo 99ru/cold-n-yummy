@@ -1,0 +1,32 @@
+{
+  "name": "cold-n-yumyy",
+  "version": "1.0.0",
+  "description": "![](coldnyummy.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/99ru/cold-n-yumyy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/99ru/cold-n-yumyy/issues"
+  },
+  "homepage": "https://github.com/99ru/cold-n-yumyy#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "sequelize": "^6.17.0",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "postcss-spiffing": "^0.1.0"
+  }
+}
