@@ -1,4 +1,6 @@
 const express = require("express");
+const Sequelize = require('sequelize')
+
 
 const app = express();
 const port = 8080;
@@ -9,10 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Set Views
 app.set("view engine", "ejs");
+const db = new Sequelize('sqlite://database/yummy.sqlite')
 
 // Navigation
-app.get("/", (req, res) => {
-  res.render("index");
+app.get("/", async(req, res) => {
+  const voteFlavour = await db.query('SELECT * FROM flavours', {type: Sequelize.QueryTypes.SELECT})
+  res.render("index", { voteFlavour });
 });
 
 app.get("/toplist", (req, res) => {

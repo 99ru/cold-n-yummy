@@ -8,21 +8,35 @@
     <title>Coldnyummy</title>
   </head>
   <body>
-    <div class="wrapper">
-      <%- include('./partials/header'); -%>
 
-      <div class="yummy-img">
-        <a href="toplist" class="yummy-btn">Which flavour is winning?</a>
-        <img src="/images/coldnyummy.png" alt=""/>
+    <%- include('./partials/header'); -%>
+
+    <div class="wrapper">
+
+      <div>
+        <a href="toplist" class="href"> Go to leaderboard </a>
       </div>
 
-      <h1 class="main-text"> which flavour would you like to see next? </h1>
+      <div class="main-text">
+        <h1> which flavour would you like to see next? </h1>
+      </div>
+      
+
+      <div class="flavours-list">
+
+        <ol>
+          <% for(let flavour of voteFlavour){ %>
+              <li><h3><%= flavour.flavour_title  %></h3> </li>
+          <% } %> 
+      </ol>
+
+      </div>
+
     </div>
 
       <form action="">
         <select class="form-select" aria-label="Default select example">
-
-          <option selected> Choose a flavour </option>
+          <option selected class="selected"> Choose a flavour </option>
           <option value="1">1. Simons Frästlese</option>
           <option value="2">2. Jockes konkelbär</option>
           <option value="3">3. Hasbulla Strawberry</option>
@@ -34,16 +48,9 @@
           <option value="9">9. Peachy Puff</option>
           <option value="10">10. Nabhans special </option>
         </select>
-
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Email">
-
+        <input type="text" placeholder="Email" required>
         <button type="submit" class="form-btn">Submit</button>
       </form>
-
-     
-      
-     
     </div>
   </body>
 </html>
