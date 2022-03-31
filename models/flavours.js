@@ -29,7 +29,7 @@ Flavours.init(
 Flavours.sync().then(() => {
   console.log('Flavours table created');
   Flavours.create({
-      flavour_title: 'Simons special',
+      flavour_title: 'Simons frästelse',
       points: 0,
   });
   Flavours.create({
@@ -65,7 +65,7 @@ Flavours.sync().then(() => {
       points: 0,
   });
   Flavours.create({
-      flavour_title: 'Nabhans frästelse',
+      flavour_title: 'Nabhans special',
       points: 0,
   });
 });
