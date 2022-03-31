@@ -12,12 +12,38 @@
       <%- include('./partials/header'); -%>
 
       <div class="yummy-img">
-        <a href="toplist" class="yummy-btn">Go to toplist</a>
+        <a href="toplist" class="yummy-btn">Which flavour is winning?</a>
         <img src="/images/coldnyummy.png" alt=""/>
       </div>
 
       <h1 class="main-text"> which flavour would you like to see next? </h1>
     </div>
 
+      <form action="">
+        <select class="form-select" aria-label="Default select example">
+
+          <option selected> Choose a flavour </option>
+          <option value="1">1. Simons Frästlese</option>
+          <option value="2">2. Jockes konkelbär</option>
+          <option value="3">3. Hasbulla Strawberry</option>
+          <option value="4">4. Banana Sprite </option>
+          <option value="5">5. Cookie Dough</option>
+          <option value="6">6. Ayran Special</option>
+          <option value="7">7. Piravid Päron </option>
+          <option value="8">8. Coco special </option>
+          <option value="9">9. Peachy Puff</option>
+          <option value="10">10. Nabhans special </option>
+        </select>
+
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Email">
+
+        <button type="submit" class="form-btn">Submit</button>
+      </form>
+
+     
+      
+     
+    </div>
   </body>
 </html>
