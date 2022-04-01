@@ -8,30 +8,23 @@
     <title>Coldnyummy</title>
   </head>
   <body>
-
-    <%- include('./partials/header'); -%>
-
     <div class="wrapper">
-
+      <%- include('./partials/header'); -%>
       <div>
         <a href="toplist" class="href"> Go to leaderboard </a>
       </div>
 
       <div class="main-text">
-        <h1> which flavour would you like to see next? </h1>
+        <h1> 🍓which flavour would you like to see next?🍑 </h1>
       </div>
-      
 
       <div class="flavours-list">
-
         <ol>
           <% for(let flavour of voteFlavour){ %>
               <li><h3><%= flavour.flavour_title  %></h3> </li>
           <% } %> 
-      </ol>
-
+       </ol>
       </div>
-
     </div>
 
       <form action="">
@@ -51,6 +44,7 @@
         <input type="text" placeholder="Email" required>
         <button type="submit" class="form-btn">Submit</button>
       </form>
+      
     </div>
   </body>
 </html>

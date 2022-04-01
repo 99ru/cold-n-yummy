@@ -34,7 +34,6 @@ header {
   width: 100vw;
 }
 
-
 form{
   display: flex;
   justify-content: center;
@@ -74,15 +73,11 @@ select{
  text-transform: uppercase;
 }
 
-
 input {
   border: none;
   background-color: whitesmoke;
   text-align: center;
   font-size: 1.5rem;
 }
-
-
-
 
 @import url(https://fonts.google.com/specimen/Fredoka+One);
