@@ -21,30 +21,31 @@
       <div class="flavours-list">
         <ol>
           <% for(let flavour of voteFlavour){ %>
-              <li><h3><%= flavour.flavour_title  %></h3> </li>
+              <ul> 
+                <h3><%= flavour.flavour_title  %></h3>
+              </ul>
           <% } %> 
        </ol>
       </div>
     </div>
 
-      <form action="">
+      <form action="setvote" method="post">
         <select class="form-select" aria-label="Default select example">
           <option selected class="selected"> Choose a flavour </option>
-          <option value="1">1. Simons Frästlese</option>
-          <option value="2">2. Jockes konkelbär</option>
-          <option value="3">3. Hasbulla Strawberry</option>
-          <option value="4">4. Banana Sprite </option>
-          <option value="5">5. Cookie Dough</option>
-          <option value="6">6. Ayran Special</option>
-          <option value="7">7. Piravid Päron </option>
-          <option value="8">8. Coco special </option>
-          <option value="9">9. Peachy Puff</option>
-          <option value="10">10. Nabhans special </option>
+          <option value="1" id="1">1. Simons Frestlese</option>
+          <option value="2" id="2">2. Jockes konkelbär</option>
+          <option value="3" id="3">3. Hasbulla Strawberry</option>
+          <option value="4" id="4">4. Banana Sprite </option>
+          <option value="5" id="5">5. Cookie Dough</option>
+          <option value="6" id="6">6. Ayran Special</option>
+          <option value="7" id="7">7. Piravid Päron </option>
+          <option value="8" id="8">8. Coco special </option>
+          <option value="9" id="9">9. Peachy Puff</option>
+          <option value="10"id="10">10. Nabhans special </option>
         </select>
         <input type="text" placeholder="Email" required>
         <button type="submit" class="form-btn">Submit</button>
       </form>
-      
     </div>
   </body>
 </html>

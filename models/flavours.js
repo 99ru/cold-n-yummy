@@ -7,9 +7,9 @@ const sequelize = new Sequelize({
   storage: "database/yummy.sqlite",
 });
 
-class Flavours extends Model {}
 
-// Define Flavours model
+// #1 Create a model for the table
+class Flavours extends Model {}
 Flavours.init(
   {
     flavour_id: {
@@ -22,50 +22,59 @@ Flavours.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+
+    flavour_votes: {
+      type: DataTypes.INTEGER,
+    }
+
   },
   {sequelize, modelName: "flavours",}
 );
 
+
 Flavours.sync().then(() => {
   console.log('Flavours table created');
+
   Flavours.create({
-      flavour_title: 'Simons frästelse',
-      points: 0,
+      flavour_title: 'Simons frestelse',
+      flavour_votes: 6,
   });
   Flavours.create({
       flavour_title: 'Jockes konkelbär',
-      points: 0,
+      flavour_votes: 7,
   });
   Flavours.create({
       flavour_title: 'Hasbulla Strawberry',
-      points: 0,
+      flavour_votes: 0,
   });
   Flavours.create({
       flavour_title: 'Banana Sprite',
-      points: 0,
+      flavour_votes: 0,
   });
   Flavours.create({
       flavour_title: 'Cookie Dough',
-      points: 0,
+      flavour_votes: 0,
   });
   Flavours.create({
       flavour_title: 'Ayran special',
-      points: 0,
+      flavour_votes: 0,
   });
   Flavours.create({
       flavour_title: 'Piravid Päron',
-      points: 0,
+      flavour_votes: 0,
   });
   Flavours.create({
       flavour_title: 'coco special',
-      points: 0,
+      flavour_votes: 0,
   });
   Flavours.create({
       flavour_title: 'Peachy puff',
-      points: 0,
+      flavour_votes: 0,
   });
   Flavours.create({
       flavour_title: 'Nabhans special',
-      points: 0,
+      flavour_votes: 3,
   });
 });
+
+module.exports = Flavours;

@@ -16,9 +16,23 @@
   </head>
   <body>
     <%- include('./partials/header'); -%>
-   
 
-    <h1>Leaderboard</h1>
+ 
+      <h1>Leaderboard</h1>
+
+      <div class="flavours-list">
+        <ol>
+          <% for(let flavour of voteFlavour){ %>
+              <li> 
+                <p><%= flavour.flavour_title  %></p>
+                <p><%= flavour.flavour_votes  %> Votes</p>
+              </li>
+          <% } %> 
+       </ol>
+
+    </div>
+  
+  
     
 
   </body>
