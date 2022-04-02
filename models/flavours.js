@@ -73,3 +73,5 @@ Flavours.sync().then(() => {
     flavour_votes: 3,
   });
 });
+
+

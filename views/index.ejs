@@ -20,7 +20,7 @@
 
       <div class="flavours-list">
         <ol>
-          <% for(let flavour of voteFlavour){ %>
+          <% for(let flavour of flavourList){ %>
               <ul> 
                 <h3><%= flavour.flavour_title %></h3>
               </ul>
@@ -28,6 +28,8 @@
        </ol>
       </div>
     </div>
+
+ 
 
       <form action="setvote" method="post">
         <select class="form-select" aria-label="Default select example">
@@ -46,6 +48,7 @@
         <input type="text" placeholder="Email" required>
         <button type="submit" class="form-btn">Submit</button>
       </form>
+
     </div>
   </body>
 </html>
