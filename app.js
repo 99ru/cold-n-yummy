@@ -26,29 +26,7 @@ app.get("/toplist", async(req, res) => {
 });
 
 
-// Vote flavour with email 
-app.post("/setvote", async(req, res) => {
-
-
-
-  res.redirect("/toplist");
-})
-
-
-
-/* app.get("/toplist", (req, res) => {
-  res.render("toplist");
-}) */
-
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
-
-/* 
-# sql orderd by votes 
-
-SELECT * FROM flavours
-ORDER BY flavour_votes DESC; 
-
-*/
