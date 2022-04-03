@@ -28,7 +28,8 @@ app.get("/toplist", async(req, res) => {
 
 // Vote flavour with email 
 app.post("/setvote", async(req, res) => {
-const { email, flavour_id } = req.body
+
+
 
   res.redirect("/toplist");
 })

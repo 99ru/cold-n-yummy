@@ -19,19 +19,29 @@
       </div>
 
       <div class="flavours-list">
-        <ol>
-          <% for(let flavour of flavourList){ %>
-              <ul> 
-                <h3><%= flavour.flavour_title %></h3>
-              </ul>
-          <% } %> 
-       </ol>
+        <form action="setvote" method="post">
+          <ol>
+            <% for(let flavour of flavourList){ %>
+                <ul> 
+                    <input class="radio" type="radio" name="flavour" value="<%= flavour.id %>">
+                    <%= flavour.flavour_title %>
+                </ul>
+            <% } %> 
+         </ol>
+         
+         <input type="text" placeholder="email" required>
+         <button>send vote</button>
+        </form>
+
+       
+
       </div>
     </div>
 
  
+ 
 
-      <form action="setvote" method="post">
+   <!--    <form action="setvote" method="post">
         <select class="form-select" aria-label="Default select example">
           <option selected class="selected"> Choose a flavour </option>
           <option value="1" id="1">1. Simons Frestlese</option>
@@ -47,7 +57,7 @@
         </select>
         <input type="text" placeholder="Email" required>
         <button type="submit" class="form-btn">Submit</button>
-      </form>
+      </form> -->
 
     </div>
   </body>

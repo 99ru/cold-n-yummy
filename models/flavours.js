@@ -29,6 +29,22 @@ Flavours.init(
   { sequelize, modelName: "flavours" }
 );
 
+class User extends Model {}
+User.init(
+  {
+    user: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+  },
+  { sequelize, modelName: "user" }
+);
+
+User.sync().then(() => {
+  console.log("User table created");
+});
+
+
 Flavours.sync().then(() => {
   console.log("Flavours table created");
 
@@ -72,6 +88,12 @@ Flavours.sync().then(() => {
     flavour_title: "Nabhans special",
     flavour_votes: 3,
   });
+
+//  User
+  User.create({
+    user: "admin@live.se",
+  });
+
 });
 
 
