@@ -15,6 +15,7 @@ Flavours.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
 
     flavour_title: {
@@ -57,8 +58,8 @@ Flavours.sync().then(() => {
     flavour_votes: 7,
   });
   Flavours.create({
-    flavour_title: "Hasbulla Strawberry",
-    flavour_votes: 0,
+    flavour_title: "Hasbik's Strawberry",
+    flavour_votes: 10,
   });
   Flavours.create({
     flavour_title: "Banana Sprite",

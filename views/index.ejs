@@ -8,34 +8,26 @@
     <title>Coldnyummy</title>
   </head>
   <body>
+    <%- include('./partials/header'); -%>
     <div class="wrapper">
-      <%- include('./partials/header'); -%>
-     
-        <a href="toplist" class="href"> Go to leaderboard </a>
-        <h1> 🍓which flavour would you like to see next?🍑 </h1>
-      
       <div class="flavours-list">
-        <form action="setvote" method="post">
+
+        <form action="/vote" method="POST">
+          <h1> 🍓which flavour would you like to see next?🍑 </h1>
           <ol>
             <% for(let flavour of flavourList){ %>
                 <ul> 
-                    <input class="radio" type="radio" name="flavour" value="<%= flavour.id %>">
+                    <input class="radio" type="radio" name="flavour" value="<%= flavour.flavour_title %>">
                     <%= flavour.flavour_title %>
                 </ul>
             <% } %> 
          </ol>
-         
          <input type="text" placeholder="email" required>
          <button>send vote</button>
         </form>
 
-       
-
       </div>
     </div>
-
- 
- 
 
    <!--    <form action="setvote" method="post">
         <select class="form-select" aria-label="Default select example">

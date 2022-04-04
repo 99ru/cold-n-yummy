@@ -1,6 +1,5 @@
 body,
 html,
-h1,
 .wrapper {
   background-color: lightgoldenrodyellow;
   margin: 0 auto;
@@ -12,19 +11,29 @@ h1,
 }
 *{
   font-family: Fredoka One, cursive;
+  font-weight: bolder;
 }
 
 header {
   text-align: center;
   background-color:  #FFB2B2;
   width: 100vw;
-  margin: 0;
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  background-color: #FFB2B2;
 }
 
 .href{
   text-decoration: none;
-  color: rgb(44, 40, 40);
-  font-size: 1rem
+  color: black;
+  border-bottom: black solid 3px;
+
 }
 
 .flavours-list{
