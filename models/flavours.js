@@ -11,24 +11,25 @@ const sequelize = new Sequelize({
 class Flavours extends Model {}
 Flavours.init(
   {
-    flavour_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
     },
 
-    flavour_title: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    flavour_votes: {
+    votes: {
       type: DataTypes.INTEGER,
     },
   },
   { sequelize, modelName: "flavours" }
 );
+
 
 class User extends Model {}
 User.init(
@@ -50,44 +51,44 @@ Flavours.sync().then(() => {
   console.log("Flavours table created");
 
   Flavours.create({
-    flavour_title: "Simons frestelse",
-    flavour_votes: 6,
+    title: "Simons frestelse",
+    votes: 6,
   });
   Flavours.create({
-    flavour_title: "Jockes konkelbär",
-    flavour_votes: 7,
+    title: "Jockes konkelbär",
+    votes: 7,
   });
   Flavours.create({
-    flavour_title: "Hasbik's Strawberry",
-    flavour_votes: 10,
+    title: "Hasbik's Strawberry",
+    votes: 10,
   });
   Flavours.create({
-    flavour_title: "Banana Sprite",
-    flavour_votes: 0,
+    title: "Banana Sprite",
+    votes: 0,
   });
   Flavours.create({
-    flavour_title: "Cookie Dough",
-    flavour_votes: 0,
+    title: "Cookie Dough",
+    votes: 0,
   });
   Flavours.create({
-    flavour_title: "Ayran special",
-    flavour_votes: 0,
+    title: "Ayran special",
+    votes: 0,
   });
   Flavours.create({
-    flavour_title: "Piravid Päron",
-    flavour_votes: 0,
+    title: "Piravid Päron",
+    votes: 0,
   });
   Flavours.create({
-    flavour_title: "coco special",
-    flavour_votes: 0,
+    title: "coco special",
+    votes: 0,
   });
   Flavours.create({
-    flavour_title: "Peachy puff",
-    flavour_votes: 0,
+    title: "Peachy puff",
+    votes: 0,
   });
   Flavours.create({
-    flavour_title: "Nabhans special",
-    flavour_votes: 3,
+    title: "Nabhans special",
+    votes: 3,
   });
 
 //  User

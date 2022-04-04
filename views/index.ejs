@@ -14,14 +14,17 @@
 
         <form action="/vote" method="POST">
           <h1> 🍓which flavour would you like to see next?🍑 </h1>
+
           <ol>
             <% for(let flavour of flavourList){ %>
                 <ul> 
-                    <input class="radio" type="radio" name="flavour" value="<%= flavour.flavour_title %>">
-                    <%= flavour.flavour_title %>
+                    <input class="radio" type="radio" name="flavour" value="<%= flavour.title %>">
+                    <%= flavour.title %>
                 </ul>
             <% } %> 
          </ol>
+
+
          <input type="text" placeholder="email" required>
          <button>send vote</button>
         </form>
