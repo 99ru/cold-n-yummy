@@ -17,16 +17,17 @@
   </head>
   <body>
     <%- include('./partials/header'); -%>
-      <h1>Leaderboard</h1>
-      <div class="flavours-list">
+    <div class="wrapper2">
+      <h2>Leaderboards👑</h2>
+      <div class="top-list">
         <ol>
           <% for(let flavour of flavourList){ %>
-              <li> 
                 <p><%= flavour.title  %></p>
-                <p><%= flavour.votes  %> Votes</p>
-              </li>
+                <p class="flavour-votes"><%= flavour.votes  %> Votes</p>
           <% } %> 
        </ol>
     </div>
+    </div>
+   
   </body>
 </html>

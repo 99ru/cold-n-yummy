@@ -24,25 +24,20 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-
+  gap: 35px;
+  font-size: 2em;
   background-color: #FFB2B2;
 }
 
 .href{
   text-decoration: none;
-  color: black;
-  border-bottom: black solid 3px;
-
+  color: white;
+  text-shadow: #000000 4px 1px 2px;
+  cursor: pointer;
 }
-
-.flavours-list{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 100vw;
+.href a:hover{
+  color: red;
+  
 }
 
 form{
@@ -50,9 +45,9 @@ form{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 100px;
   gap: 30px;
-  margin: 4rem;
+  margin: 2rem;
+  padding: 7px;
   background-color: peachpuff;
   border-radius: 10px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
@@ -79,9 +74,29 @@ input {
   font-size: 1.5rem;
 }
 
-.toplist-view{
-background-color: #FFB2B2;
+.flavour-votes{
+  color: white;
+  text-shadow: black 0px 0px 2px;
+  border-bottom: #FFB2B2 solid 1px;
 }
+
+.wrapper2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100vw;
+  background-color: lightgoldenrodyellow;
+}
+.top-list{
+  background-color: peachpuff;
+  border-radius: 5px;
+  width: 20vw;
+}
+
+
+
 
 
 
