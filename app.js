@@ -11,12 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const db = new Sequelize('sqlite://database/yummy.sqlite')            
 
+
 // Home page + gets all flavours
 app.get("/", async(req, res) => {
   const flavourList = await db.query('SELECT * FROM flavours', 
   {type: Sequelize.QueryTypes.SELECT})
   res.render("index", { flavourList });
 });
+
 
 //  Toplist + flavours ordered by votes
 app.get("/toplist", async(req, res) => {
@@ -25,14 +27,15 @@ app.get("/toplist", async(req, res) => {
   res.render("toplist", { flavourList });
 });
 
+
+// vote form
 app.post("/vote", async(req, res) => {
-  const flavour = req.body.flavour;
-  const voted = await db.query(`SELECT votes FROM flavours WHERE title = '${flavour}'`, {type: Sequelize.QueryTypes.SELECT})
+  const flavour = req.body.flavour; 
+  const newVote = await db.query(`SELECT votes FROM flavours WHERE title = '${flavour}'`, {type: Sequelize.QueryTypes.SELECT})
 
-  const addVote = voted[0].votes + 1
-    await db.query(`UPDATE flavours SET votes = ${addVote} WHERE title = '${flavour}'`, {type: Sequelize.QueryTypes.UPDATE})
+  const updateVotes = newVote[0].votes + 1
+    await db.query(`UPDATE flavours SET votes = ${updateVotes} WHERE title = '${flavour}'`, {type: Sequelize.QueryTypes.UPDATE})
     res.redirect('/toplist')
-
 })
 
 
