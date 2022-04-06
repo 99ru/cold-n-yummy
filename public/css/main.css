@@ -24,7 +24,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 35px;
+  gap: 1.5rem;
   font-size: 2em;
   background-color: #FFB2B2;
 }
@@ -35,10 +35,6 @@ nav{
   text-shadow: #000000 4px 1px 2px;
   cursor: pointer;
 }
-.href a:hover{
-  color: red;
-  
-}
 
 form{
   display: flex;
@@ -48,14 +44,16 @@ form{
   gap: 30px;
   margin: 2rem;
   padding: 7px;
+  /* background-image: url(/images/test2.png); */
   background-color: peachpuff;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 10px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  background-size: fill;
 }
 
-
 form button{
-  background-color: #FFB2B2;
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -72,12 +70,11 @@ input {
   background-color: whitesmoke;
   text-align: center;
   font-size: 1.5rem;
+  border: #000000 3px solid; 
 }
 
-.flavour-votes{
-  color: white;
-  text-shadow: black 0px 0px 2px;
-  border-bottom: #FFB2B2 solid 1px;
+.flavour-votes{ 
+  border-bottom: #000000 solid 1px;
 }
 
 .wrapper2{
@@ -89,6 +86,7 @@ input {
   width: 100vw;
   background-color: lightgoldenrodyellow;
 }
+
 .top-list{
   background-color: peachpuff;
   border-radius: 5px;
