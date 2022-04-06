@@ -28,8 +28,9 @@ app.get("/toplist", async (req, res) => {
 
 app.post("/vote", async (req, res) => {
  // vote flavour.title
-  const flavour = await Flavours.findOne({ where: { title: req.body.title } });
-  flavour.votes++;
+ const flavour = req.body.flavour; 
+  const flavourToVote = await Flavours.findOne({ where: { title: flavour } });
+  const updateVotes = await Flavours.update( { votes: flavourToVote.votes + 1 }, { where: { title: flavour } });
   res.redirect("/toplist");
 })
 
