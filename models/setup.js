@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../database/db");
 const Flavours = require("./flavours");
+const User = require("./user");
 
 sequelize.sync({force: true}).then(() => {
 
@@ -16,6 +17,11 @@ sequelize.sync({force: true}).then(() => {
     { title: "Peachy puff", votes: 0 },
     { title: "Nabhans special", votes: 0 },
   ])
+
+  User.bulkCreate([
+    { email: "admin@live.se" },
+  ])
+
 });
 
 module.exports = sequelize
