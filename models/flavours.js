@@ -1,9 +1,7 @@
 const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../database/db");
 
-// #1 Create a model for the table
 class Flavours extends Model {}
-
-module.exports = (sequelize) => {
   Flavours.init(
     {
       id: {
@@ -24,9 +22,8 @@ module.exports = (sequelize) => {
     },
     { sequelize, modelName: "flavours" }
   );
-  return Flavours;
-}
 
+  module.exports = Flavours
 
 
 
