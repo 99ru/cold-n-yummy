@@ -1,17 +1,9 @@
-// Connect sequelize
 const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require("../database/db");
+const Flavours = require("./flavours");
 
-// creates database + yummy.sqlite
-const sequelize = new Sequelize({
-  dialect: "sqlite",
-  storage: "database/yummy.sqlite",
-});
+sequelize.sync({force: true}).then(() => {
 
-
-const Flavours = require("./flavours")(sequelize, DataTypes);
-
-Flavours.sync({force: true}).then(() => {
- 
   Flavours.bulkCreate([ 
     { title: "Simons frestelse", votes: 7 },
     { title: "Jockes konkelbär", votes: 12 },
@@ -25,4 +17,7 @@ Flavours.sync({force: true}).then(() => {
     { title: "Nabhans special", votes: 0 },
   ])
 });
+
+module.exports = sequelize
+
 
