@@ -24,6 +24,9 @@ sequelize.sync({force: true}).then(() => {
 
 });
 
+User.hasOne(Flavours);
+Flavours.belongsTo(User) ;
+
 module.exports = sequelize
 
 

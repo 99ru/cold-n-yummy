@@ -8,6 +8,12 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+    },
   },
   { sequelize, modelName: "user" }
 );

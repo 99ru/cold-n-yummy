@@ -22,14 +22,27 @@ app.get("/toplist", async (req, res) => {
   res.render("toplist", { flavourList });
 });
 
-app.post("/vote", async (req, res) => {
-  const flavour = req.body.flavour;
-  const flavourToVote = await Flavours.findOne({ where: { title: flavour } });
+app.get("/login", async (req, res) => {
+  res.render("login");
+})
 
-  const updateVotes = await Flavours.update(
-    { votes: flavourToVote.votes + 1 },
-    { where: { title: flavour } }
+app.get("/register", async (req, res) => {
+  res.render("register");
+})
+
+
+app.post("/vote", async (req, res) => {
+  const flavour = req.body.flavour; //flavour is the name of the input field in the form
+  const flavourToVote = await Flavours.findOne({ where: { title: flavour } }); // find the flavour in the database
+
+  const updateVotes = await Flavours.update( // update the votes in the database
+    { votes: flavourToVote.votes + 1 }, // add 1 to the votes
+    { where: { title: flavour } }  // where the title is the same as the flavour
   );
+
+
+
+
 
   res.redirect("/toplist");
 });
