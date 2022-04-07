@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require("sequelize");
+/* const { Sequelize, DataTypes } = require("sequelize"); */
 const sequelize = require("../database/db");
 const Flavours = require("./flavours");
 const User = require("./user");
@@ -19,7 +19,7 @@ sequelize.sync({force: true}).then(() => {
   ])
 
   User.bulkCreate([
-    { email: "admin@live.se" },
+    { email: "admin@live.se", password: "korv", id: 1 },
   ])
 
 });

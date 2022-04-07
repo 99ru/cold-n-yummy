@@ -1,18 +1,19 @@
-const { Sequelize } = require("sequelize");
+/* const { Sequelize } = require("sequelize"); */
 const express = require("express");
 const app = express();
 const Flavours = require("./models/flavours");
 
-app.use(express.static("public"));
-
-app.use(express.urlencoded({ extended: true }));
-
 app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended:true}))
+
 
 app.get("/", async (req, res) => {
   const flavours = await Flavours.findAll();
   res.render("index", { flavours });
 });
+
 
 app.get("/toplist", async (req, res) => {
   const flavourList = await Flavours.findAll({
@@ -22,14 +23,27 @@ app.get("/toplist", async (req, res) => {
   res.render("toplist", { flavourList });
 });
 
+
 app.get("/login", async (req, res) => {
   res.render("login");
 })
+
 
 app.get("/register", async (req, res) => {
   res.render("register");
 })
 
+
+app.post("/login", async (req, res) => {
+res.render("welcome")
+})
+
+
+app.post("/register", async (req, res) => {
+  res.render("welcome")
+})
+
+  
 
 app.post("/vote", async (req, res) => {
   const flavour = req.body.flavour; //flavour is the name of the input field in the form
@@ -40,10 +54,6 @@ app.post("/vote", async (req, res) => {
     { where: { title: flavour } }  // where the title is the same as the flavour
   );
 
-
-
-
-
   res.redirect("/toplist");
 });
 
@@ -52,14 +62,3 @@ app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
-// OLD VOTE
-
-/*
- app.post("/vote", async(req, res) => {
-  const flavour = req.body.flavour; 
-  const newVote = await db.query(`SELECT votes FROM flavours WHERE title = '${flavour}'`, {type: Sequelize.QueryTypes.SELECT})
-  
-  const updateVotes = newVote[0].votes + 1
-    await db.query(`UPDATE flavours SET votes = ${updateVotes} WHERE title = '${flavour}'`, {type: Sequelize.QueryTypes.UPDATE})
-    res.redirect('/toplist')
-}) */

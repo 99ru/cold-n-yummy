@@ -11,23 +11,22 @@
     <%- include('./partials/header'); -%>
     <div class="wrapper">
       <div class="flavours-list">
-      
-        
+
         <form action="/vote" method="POST">
-         
           <h1> 🍓which flavour would you like to see next?🍑 </h1>
           <ol>
             <% for(let flavour of flavours){ %>
                 <ul> 
                     <input class="radio" type="radio" name="flavour" value="<%= flavour.title %>">
                     <%= flavour.title %>
+                    <%= flavour.img %>
                 </ul>
             <% } %> 
          </ol>
-         <input type="text" placeholder="email" required>
+         <input type="email" placeholder="email" required>
          <button>send vote</button>
-        </form>
 
+        </form>
       </div>
     </div>
     </div>

@@ -8,6 +8,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+  
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
     id: {
       type: DataTypes.INTEGER,

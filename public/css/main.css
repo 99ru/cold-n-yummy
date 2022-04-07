@@ -18,6 +18,7 @@ header {
   text-align: center;
   background-color:  #FFB2B2;
   width: 100vw;
+
 }
 
 nav{
@@ -25,14 +26,14 @@ nav{
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: #FFB2B2;
 }
 
 .href{
   text-decoration: none;
   color: white;
-  text-shadow: #000000 4px 1px 2px;
+  text-shadow: #111010 2px 1px 2px;
   cursor: pointer;
 }
 
@@ -41,10 +42,8 @@ form{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
   margin: 2rem;
-  padding: 7px;
-  /* background-image: url(/images/test2.png); */
   background-color: peachpuff;
   background-repeat: no-repeat;
   background-size: cover;
