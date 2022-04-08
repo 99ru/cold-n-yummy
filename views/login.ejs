@@ -10,9 +10,9 @@
 <body>
   <%- include('./partials/header'); -%>
   <h1>LOGIN</h1>
-  <form action="login" method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
+  <form action="/login" method="POST">
+    <input type="email" name="email" placeholder="Email" id="email" required>
+    <input type="password" name="password" placeholder="Password" id="password" required>
     <button>Login</button>
   </form>
   <p>Don't have an account? <a href="/register">Sign up</a></p>
