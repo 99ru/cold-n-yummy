@@ -4,11 +4,12 @@ const app = express();
 const Flavours = require("./models/flavours");
 const User = require("./models/user");
 const bcrypt = require("bcrypt");
+const session = require("express-session");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(session({ secret: "not a good secret" }));
 
 app.get("/", async (req, res) => {
   const flavours = await Flavours.findAll();
@@ -23,14 +24,6 @@ app.get("/toplist", async (req, res) => {
   res.render("toplist", { flavourList });
 });
 
-
-
-
-app.get("/welcome", (req, res) => {
-res.render("welcome");
-})
-
-
 // GET register form
 app.get("/register", async (req, res) => {
   res.render("register");
@@ -39,16 +32,15 @@ app.get("/register", async (req, res) => {
 // POST register form & save user to database
 app.post("/register", async (req, res) => {
   const { password, email } = req.body;
-  const hash = await bcrypt.hash(password, 12); 
+  const hash = await bcrypt.hash(password, 12);
   const user = new User({
     email,
-    password: hash
-  })
-
+    password: hash,
+  });
   await user.save();
-  res.redirect("/welcome");
+  req.session.user_id = user._id;
+  res.redirect("/");
 });
-
 
 // GET login form
 app.get("/login", async (req, res) => {
@@ -58,19 +50,15 @@ app.get("/login", async (req, res) => {
 // Post login form & check if user exists in database
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({where: {email}})
-  const validPassword = await bcrypt.compare(password, user.password) 
-  if(validPassword){
-    res.send("You are logged in!")
-  } 
-  else {
-    res.send("TRY AGAIN!") // 401 = unauthorized
+  const user = await User.findOne({ where: { email } });
+  const validPassword = await bcrypt.compare(password, user.password);
+  if (validPassword) {
+    req.session.user_id = user._id;
+    res.send("You are logged in!");
+  } else {
+    res.send("Wrong password!");
   }
-})
-
-
-
-
+});
 
 
 
@@ -100,6 +88,15 @@ app.post("/vote", async (req, res) => {
 
   res.redirect("/toplist");
 });
+
+app.get("/secret", (req, res) => {
+  if (!req.session.user_id) {
+    res.redirect("/login");
+  }
+  res.send("THIS IS A SECRET PAGE!");
+});
+
+
 
 const port = 8080;
 app.listen(port, () => {

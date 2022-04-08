@@ -8,18 +8,18 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
 
     email: {
       type: DataTypes.TEXT,
       allowNull: false,
-      unique: true,
+      unique: true
     },
 
     password: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: true
     },
   },
   { sequelize, modelName: "user" }
