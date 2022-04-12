@@ -17,15 +17,10 @@ sequelize.sync({force: true}).then(() => {
     { title: "Peachy puff", votes: 0 },
     { title: "Nabhans special", votes: 0 },
   ])
-
-  User.bulkCreate([
-    { email: "admin@live.se", password: "korv" },
-  ])
-
 });
 
-User.hasOne(Flavours);
-Flavours.belongsTo(User) ;
+Flavours.hasMany(User);
+User.belongsTo(Flavours);
 
 module.exports = sequelize
 
