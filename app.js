@@ -17,63 +17,37 @@ app.get("/", async (req, res) => {
   res.render("index", { flavours });
 });
 
+
 app.get("/toplist", async (req, res) => {
   const flavourList = await Flavours.findAll({
     limit: 10,
-    order: [["votes", "DESC"]],
+    order: [["votes", "DESC",]],
+    where: {votes: {[Sequelize.Op.gt]: 0}} // WHERE votes > 0
   });
   res.render("toplist", { flavourList });
 });
 
-/* app.post("/vote", async (req, res) => {
-  const flavour = req.body.flavour; // form
-  const userEmail = req.body.email;
-  const flavourToVote = await Flavours.findOne({ where: { title: flavour } });
-
-  // if email is not unique, then we can't vote
-
-  console.log(req.body)
-  console.log(flavourToVote.id)
-
-  await User.create({
-    email: userEmail,
-  });
-
-  await User.update({
-    flavourId: flavourToVote.id,
-  })
-
-  await Flavours.update(
-    { votes: flavourToVote.votes + 1 },
-    { where: { title: flavour } }
-  );
-  res.redirect("/toplist");
-}); */
+app.get("/error", async (req, res) => {
+  res.render("error");
+});
 
 app.post("/vote", async (req, res) => {
-  const flavour = req.body.flavour; // form
+  const flavour = req.body.flavour;
   const userEmail = req.body.email;
   const flavourToVote = await Flavours.findOne({ where: { title: flavour } });
-
-  //if userEmail is unique, create a new user
   const user = await User.findOne({ where: { email: userEmail } });
-  try {
-    if (!user) {
-      await User.create({
-        email: userEmail,
-      });
 
-      await Flavours.update(
-        { votes: flavourToVote.votes + 1 },
-        { where: { title: flavour } }
-      );
-      res.redirect("/toplist");
-    }
-  } catch (err) {
-    console.log(err);
-    console.log("opsiedaisy you already voted!");
-    alert("opsiedaisy you already voted!");
-    res.redirect("/");
+  if (!user) {
+    await User.create({
+      email: userEmail,
+    });
+    await Flavours.update(
+      { votes: flavourToVote.votes + 1 },
+      { where: { title: flavour } }
+    );
+    res.redirect("/toplist");
+  } else {
+    res.redirect("/error");
   }
 });
 
@@ -82,8 +56,13 @@ app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
-// LOGIN SKIT //
 
+
+
+
+
+
+// LOGIN SKIT //
 /* 
 app.get("/register", async (req, res) => {
   res.render("register");
